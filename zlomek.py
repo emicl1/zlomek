@@ -6,7 +6,7 @@ autor: Alex Olivier Michaud
 from math import gcd, lcm   #import největšího společného dělitele a nejměnšího společného násobku
 #Class
 class Zlomek:
-     def __init__(self, citatel, jmenovatel):
+     def __init__(self, citatel, jmenovatel=1):
          """
          :param citatel: int
          :param jmenovatel: int
@@ -82,9 +82,10 @@ class Zlomek:
             return f"{self.citatel}/{self.jmenovatel}"
 
 #Main program
-z1 = Zlomek(3, 4)
-z2 = Zlomek(1, 3)
-z3 = z1 + z2
-print(f"{z1} + {z2} = {z3}")
+if __name__ == "__main__":
+    z1 = Zlomek(3)
+    z2 = Zlomek(1, 3)
+    z3 = z1 + z2
+    print(f"{z1} + {z2} = {z3}")
 
 
