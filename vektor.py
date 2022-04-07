@@ -2,7 +2,7 @@
 class for working with vectors
 autor: Alex Olivier Michaud
 """
-from zlomek import Zlomek
+from zlomky import Zlomek
 from math import sqrt, atan2, degrees
 class Vector:
     def __init__(self, x, y):
