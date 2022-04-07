@@ -13,6 +13,8 @@ class Vector:
         self._x = x     #atributy instance
         self._y = y
 
+
+
     def phi(self):
         """
         return: degrees of the vector
@@ -56,6 +58,18 @@ class Vector:
     def __gt__(self, other):
         return (self.velikost() > other.velikost)
 
+    @classmethod
+    def fromStr(self, retezec) ->None:
+        x, y = retezec.split(",")
+        try:
+            internal_1, internal_2 = x.split("/")
+            internal_3, internal_4 = y.split("/")
+            z1 = Zlomek(int(internal_1), int(internal_2))
+            z2 = Zlomek(int(internal_3), int(internal_4))
+            return Vector(z1, z2)
+        except:
+            return Vector(float(x), float(y))
+
 
 if __name__ == "__main__":
     v1 = Vector(Zlomek(1),Zlomek(1))
@@ -66,3 +80,4 @@ if __name__ == "__main__":
 
     print(v1.velikost())
     print(abs(v1))
+    print(v1.fromStr("3/4,2/5"))
