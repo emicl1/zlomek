@@ -81,11 +81,29 @@ class Zlomek:
          else:                      #všechny ostatní příprady
             return f"{self.citatel}/{self.jmenovatel}"
 
+     def __pow__(self, power):
+         """
+         :param power: zlomek
+         :return: zlomek
+         """
+         citatel_pow = self.citatel ** (power.citatel /power.jmenovatel)
+         jmenovatel_pow = self.jmenovatel ** (power.citatel /power.jmenovatel)
+         if citatel_pow - int(citatel_pow) == 0 and jmenovatel_pow - int(jmenovatel_pow) == 0:
+             new_zlomek = Zlomek(int(citatel_pow), int(jmenovatel_pow))
+             new_zlomek.check_if_gdc()
+             return new_zlomek
+         else:
+             new_zlomek = Zlomek((citatel_pow), (jmenovatel_pow))
+
+             return new_zlomek
+
+
 #Main program
 if __name__ == "__main__":
     z1 = Zlomek(3)
     z2 = Zlomek(1, 3)
     z3 = z1 + z2
     print(f"{z1} + {z2} = {z3}")
+    print(Zlomek(1,2) ** Zlomek(1, 2))
 
 
